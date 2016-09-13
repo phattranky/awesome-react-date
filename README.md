@@ -1,11 +1,13 @@
 # react-date-range
 ![](https://badge.fury.io/js/react-date-range.svg)
-![](https://david-dm.org/phattranky/react-date-range.svg)
-![](https://david-dm.org/phattranky/react-date-range/dev-status.svg)
+![](https://david-dm.org/phattranky/awesome-react-date.svg)
+![](https://david-dm.org/phattranky/awesome-react-date/dev-status.svg)
 
 A React component for choosing dates and date ranges. Uses [Moment.js](http://momentjs.com/) for date operations.
 
-**Live Demo :** [http://phattranky.github.io/react-date-range](http://phattranky.github.io/react-date-range)
+Extend from https://github.com/Adphorus/react-date-range
+
+**Live Demo :** [http://phattranky.github.io/awesome-react-date](http://phattranky.github.io/awesome-react-date)
 
 ![](https://cdn.pbrd.co/images/1fjQlZzy.png)
 
@@ -13,14 +15,14 @@ A React component for choosing dates and date ranges. Uses [Moment.js](http://mo
 ### Installation
 
 ```
-$ npm install --save awesome-react-date-range
+$ npm install --save awesome-react-date
 ```
 
 ## Usage
 ### Date Picker
 ```javascript
 import React, { Component } from 'react';
-import { Calendar } from 'awesome-react-date-range';
+import { Calendar } from 'awesome-react-date';
 
 class MyComponent extends Component {
 	handleSelect(date){
@@ -42,8 +44,11 @@ class MyComponent extends Component {
 ```
 
 ###### Available Options (props)
+
 * **date:** *(String, Moment.js object, Function)* - default: today
 * **format:** *(String)* - default: DD/MM/YYY
+* **weekdaysFormat:** *(Array)* - default: [] - Ex: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+* **monthsFormat:** *(Array)* - default: [] - Ex: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 * **firstDayOfWeek** *(Number)* - default: [moment.localeData().firstDayOfWeek()](http://momentjs.com/docs/#/i18n/locale-data/)
 * **theme:** *(Object)* see [Demo's source](https://github.com/Adphorus/react-date-range/blob/master/demo/src/components/Main.js#L130)
 * **onInit:** *(Function)* default: none
@@ -79,6 +84,8 @@ class MyComponent extends Component {
 * **startDate:** *(String, Moment.js object, Function)* - default: today
 * **endDate:** *(String, Moment.js object, Function)* - default: today
 * **format:** *(String)* - default: DD/MM/YYY
+* **weekdaysFormat:** *(Array)* - default: [] - Ex: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+* **monthsFormat:** *(Array)* - default: [] - Ex: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 * **firstDayOfWeek** *(Number)* - default: [moment.localeData().firstDayOfWeek()](http://momentjs.com/docs/#/i18n/locale-data/)
 * **theme:** *(Object)* see [Demo's source](https://github.com/Adphorus/react-date-range/blob/master/demo/src/components/Main.js#L143)
 * **onInit:** *(Function)* default: none

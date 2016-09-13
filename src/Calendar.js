@@ -90,10 +90,10 @@ class Calendar extends Component {
 
   renderMonthAndYear(classes) {
     const shownDate       = this.getShownDate();
-    const month           = moment.months(shownDate.month());
     const year            = shownDate.year();
     const { styles }      = this;
-    const { onlyClasses } = this.props;
+    const { onlyClasses, monthsFormat } = this.props;
+    const month           = monthsFormat.length === 0 ? moment.months(shownDate.month()) : monthsFormat[shownDate.month()];
 
     return (
       <div style={onlyClasses ? undefined : styles['MonthAndYear']} className={classes.monthAndYearWrapper}>
@@ -122,13 +122,13 @@ class Calendar extends Component {
     const dow             = this.state.firstDayOfWeek;
     const weekdays        = [];
     const { styles }      = this;
-    const { onlyClasses } = this.props;
+    const { onlyClasses, weekdaysFormat } = this.props;
 
     for (let i = dow; i < 7 + dow; i++) {
-      const day = moment.weekdaysMin(i);
+      const day = weekdaysFormat.length === 0 ? moment.weekdaysMin(i) : weekdaysFormat[i];
 
       weekdays.push(
-        <span style={onlyClasses ? undefined : styles['Weekday']} className={classes.weekDay} key={day}>{day}</span>
+        <span style={onlyClasses ? undefined : styles['Weekday']} className={classes.weekDay} key={i + day}>{day}</span>
       );
     }
 
@@ -225,6 +225,8 @@ class Calendar extends Component {
 }
 
 Calendar.defaultProps = {
+  monthsFormat: [],
+  weekdaysFormat: [],
   format      : 'DD/MM/YYYY',
   theme       : {},
   onlyClasses : false,
@@ -232,6 +234,8 @@ Calendar.defaultProps = {
 }
 
 Calendar.propTypes = {
+  monthsFormat   : PropTypes.array,
+  weekdaysFormat : PropTypes.array,
   sets           : PropTypes.string,
   range          : PropTypes.shape({
     startDate    : PropTypes.object,

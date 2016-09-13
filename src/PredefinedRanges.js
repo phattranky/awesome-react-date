@@ -28,7 +28,7 @@ class PredefinedRanges extends Component {
 
     return Object.keys(ranges).map(name => {
       const active = (
-        parseInput(ranges[name].startDate).isSame(range.startDate) &&
+        parseInput(ranges[name].cleastartDate).isSame(range.startDate) &&
         parseInput(ranges[name].endDate).isSame(range.endDate)
       );
 
@@ -48,7 +48,7 @@ class PredefinedRanges extends Component {
           {name}
         </a>
       );
-    }.bind(this));
+    });
   }
 
   render() {

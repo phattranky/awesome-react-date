@@ -45,7 +45,7 @@ var config = {
   module                : {
     loaders             : [
       { test            : /\.js$/,
-        loaders         : ['react-hot', 'babel-loader'],
+        loaders         : ['babel-loader'],
         include         : path.join(__dirname, '/src')
       }, {
         test            : /\.css$/,
@@ -69,7 +69,7 @@ if (NODE_ENV === 'production') {
 
 const compiler = webpack(config);
 
-if (NODE_ENV === 'development') {
+if (NODE_ENV.trim() === 'development') {
   const server = new WebpackDevServer(compiler, {
     contentBase : path.join(__dirname, 'dist'),
     noInfo: false,
@@ -86,7 +86,7 @@ if (NODE_ENV === 'development') {
   server.listen(3000, 'localhost', function(){
     console.log('Webpack Dev Server is listening on port 3000');
   });
-} else if (NODE_ENV === 'production') {
+} else if (NODE_ENV.trim() === 'production') {
   compiler.run(function (err, stats) {
     if (err) throw err;
 

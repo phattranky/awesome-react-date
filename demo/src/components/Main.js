@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { defaultRanges, Calendar, DateRange } from '../../../lib';
+import DateRange from '../../../lib/DateRange';
+import defaultRanges from '../../../lib/defaultRanges';
+import Calendar from '../../../lib/Calendar';
+
 import Section from 'components/Section';
 
 import 'normalize.css';
 import 'styles/global'
 import styles from 'styles/main';
+import moment from 'moment';
 
 export default class Main extends Component {
   constructor(props, context) {
@@ -17,9 +21,11 @@ export default class Main extends Component {
       'firstDayOfWeek' : null,
       'predefined' : {},
     }
+
   }
 
   handleChange(which, payload) {
+    console.log(which, payload);
     this.setState({
       [which] : payload
     });
@@ -84,6 +90,32 @@ export default class Main extends Component {
           />
         </Section>
 
+         <Section title='Range Picker (Format months, days of week)'>
+          <div>
+            <input
+              type='text'
+              readOnly
+              value={ rangePicker['startDate'] && rangePicker['startDate'].format(format).toString() }
+            />
+            <input
+              type='text'
+              readOnly
+              value={ rangePicker['endDate'] && rangePicker['endDate'].format(format).toString() }
+            />
+          </div>
+
+          <DateRange
+            monthsFormat={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
+            weekdaysFormat={['S', 'M', 'T', 'W', 'T', 'F', 'S']}
+            startDate='10/11/2015'
+            endDate={ now => {
+              return '11/12/2015';
+            }}
+            onInit={ this.handleChange.bind(this, 'rangePicker') }
+            onChange={ this.handleChange.bind(this, 'rangePicker') }
+          />
+        </Section>
+
         <Section title='Date Picker'>
           <div>
             <input
@@ -109,6 +141,22 @@ export default class Main extends Component {
           </div>
           <Calendar
             firstDayOfWeek={ 1 }
+            date={ now => { return now.add(-4, 'days') } }
+            onInit={ this.handleChange.bind(this, 'firstDayOfWeek') }
+            onChange={ this.handleChange.bind(this, 'firstDayOfWeek') }
+          />
+        </Section>
+
+        <Section title='Date Picker (Format days of week)'>
+          <div>
+            <input
+              type='text'
+              readOnly
+              value={ firstDayOfWeek && firstDayOfWeek.format(format).toString() }
+            />
+          </div>
+          <Calendar
+            weekdaysFormat={['S', 'M', 'T', 'W', 'T', 'F', 'S']}
             date={ now => { return now.add(-4, 'days') } }
             onInit={ this.handleChange.bind(this, 'firstDayOfWeek') }
             onChange={ this.handleChange.bind(this, 'firstDayOfWeek') }

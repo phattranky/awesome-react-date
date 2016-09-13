@@ -105,8 +105,33 @@ class DateRange extends Component {
     }
   }
 
+  renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat) {
+    const _calendars = [];
+    for (var i = Number(calendars) - 1; i >= 0; i--) {
+      _calendars.push(
+        <Calendar
+          key={i}
+          offset={ -i }
+          link={ linkedCalendars && link }
+          linkCB={ this.handleLinkChange.bind(this) }
+          range={ range }
+          format={ format }
+          firstDayOfWeek={ firstDayOfWeek }
+          theme={ styles }
+          minDate={ minDate }
+          maxDate={ maxDate }
+          onlyClasses={ onlyClasses }
+          classNames={ classes }
+          monthsFormat = { monthsFormat }
+          weekdaysFormat = { weekdaysFormat }
+          onChange={ this.handleSelect.bind(this) }  />
+      );
+    }
+    return _calendars;
+  }
+
   render() {
-    const { ranges, format, linkedCalendars, style, calendars, firstDayOfWeek, minDate, maxDate, classNames, onlyClasses } = this.props;
+    const { ranges, format, linkedCalendars, style, calendars, firstDayOfWeek, minDate, maxDate, classNames, onlyClasses, weekdaysFormat, monthsFormat } = this.props;
     const { range, link } = this.state;
     const { styles } = this;
 
@@ -125,28 +150,7 @@ class DateRange extends Component {
             classNames={ classes } />
         )}
 
-        {()=>{
-          const _calendars = [];
-          for (var i = Number(calendars) - 1; i >= 0; i--) {
-            _calendars.push(
-              <Calendar
-                key={i}
-                offset={ -i }
-                link={ linkedCalendars && link }
-                linkCB={ this.handleLinkChange.bind(this) }
-                range={ range }
-                format={ format }
-                firstDayOfWeek={ firstDayOfWeek }
-                theme={ styles }
-                minDate={ minDate }
-                maxDate={ maxDate }
-		onlyClasses={ onlyClasses }
-                classNames={ classes }
-                onChange={ this.handleSelect.bind(this) }  />
-            );
-          }
-          return _calendars;
-        }()}
+        {this.renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat)}
       </div>
     );
   }
@@ -162,6 +166,8 @@ DateRange.defaultProps = {
 }
 
 DateRange.propTypes = {
+  monthsFormat : PropTypes.array,
+  weekdaysFormat : PropTypes.array,
   format          : PropTypes.string,
   firstDayOfWeek  : PropTypes.number,
   calendars       : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
