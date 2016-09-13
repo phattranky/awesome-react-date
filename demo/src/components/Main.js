@@ -38,7 +38,7 @@ export default class Main extends Component {
     return (
       <main className={styles['Main']}>
 
-        <h1 className={styles['Title']}>React-date-range</h1>
+        <h1 className={styles['Title']}>Awesome React Date</h1>
 
         <Section title='Range Picker'>
           <div>
