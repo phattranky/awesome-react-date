@@ -20,10 +20,10 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "http://github.com/phattranky/awesome-react-date-range"
+    "url": "http://github.com/phattranky/awesome-react-date"
   },
   "bugs": {
-    "url": "http://github.com/phattranky/awesome-react-date-range/issues"
+    "url": "http://github.com/phattranky/awesome-react-date/issues"
   },
   "dependencies": {
     "classnames": "^2.2.5",
