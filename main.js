@@ -21466,7 +21466,7 @@
 	        _react2.default.createElement(
 	          'h1',
 	          { className: _main2.default['Title'] },
-	          'React-date-range'
+	          'Awesome React Date'
 	        ),
 	        _react2.default.createElement(
 	          _Section2.default,
