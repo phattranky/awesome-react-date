@@ -1,6 +1,6 @@
 {
-  "name": "react-date-range",
-  "version": "0.2.4",
+  "name": "awesome-react-date",
+  "version": "0.2.5",
   "description": "A React component for choosing dates and date ranges.",
   "main": "lib/index.js",
   "scripts": {
@@ -16,21 +16,21 @@
     "datepicker",
     "rangepicker"
   ],
-  "author": "Burak Can <neoberg@gmail.com>",
+  "author": "Phat Tran <trankyphat@gmail.com>",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "http://github.com/Adphorus/react-date-range"
+    "url": "http://github.com/phattranky/awesome-react-date-range"
   },
   "bugs": {
-    "url": "http://github.com/Adphorus/react-date-range/issues"
+    "url": "http://github.com/phattranky/awesome-react-date-range/issues"
   },
   "dependencies": {
-    "classnames": "^2.2.1",
-    "moment": "^2.10.6",
-    "react": ">=0.13.0"
+    "classnames": "^2.2.5",
+    "moment": "^2.15.0",
+    "react": "^15.3.1"
   },
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel": "^6.5.2"
   }
 }

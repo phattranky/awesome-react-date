@@ -1,11 +1,11 @@
 # react-date-range
 ![](https://badge.fury.io/js/react-date-range.svg)
-![](https://david-dm.org/Adphorus/react-date-range.svg)
-![](https://david-dm.org/Adphorus/react-date-range/dev-status.svg)
+![](https://david-dm.org/phattranky/react-date-range.svg)
+![](https://david-dm.org/phattranky/react-date-range/dev-status.svg)
 
 A React component for choosing dates and date ranges. Uses [Moment.js](http://momentjs.com/) for date operations.
 
-**Live Demo :** [http://adphorus.github.io/react-date-range](http://adphorus.github.io/react-date-range)
+**Live Demo :** [http://phattranky.github.io/react-date-range](http://phattranky.github.io/react-date-range)
 
 ![](https://cdn.pbrd.co/images/1fjQlZzy.png)
 
@@ -13,14 +13,14 @@ A React component for choosing dates and date ranges. Uses [Moment.js](http://mo
 ### Installation
 
 ```
-$ npm install --save react-date-range
+$ npm install --save awesome-react-date-range
 ```
 
 ## Usage
 ### Date Picker
 ```javascript
 import React, { Component } from 'react';
-import { Calendar } from 'react-date-range';
+import { Calendar } from 'awesome-react-date-range';
 
 class MyComponent extends Component {
 	handleSelect(date){
