@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import DateRange from '../../../lib/DateRange';
-import defaultRanges from '../../../lib/defaultRanges';
-import Calendar from '../../../lib/Calendar';
+import { DateRange, defaultRanges, Calendar } from '../../../lib';
 
 import Section from 'components/Section';
 
