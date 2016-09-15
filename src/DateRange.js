@@ -105,7 +105,7 @@ class DateRange extends Component {
     }
   }
 
-  renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat) {
+  renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat, leftButton, rightButton) {
     const _calendars = [];
     for (var i = Number(calendars) - 1; i >= 0; i--) {
       _calendars.push(
@@ -124,6 +124,8 @@ class DateRange extends Component {
           classNames={ classes }
           monthsFormat = { monthsFormat }
           weekdaysFormat = { weekdaysFormat }
+          leftButton = { leftButton }
+          rightButton = { rightButton }
           onChange={ this.handleSelect.bind(this) }  />
       );
     }
@@ -131,7 +133,7 @@ class DateRange extends Component {
   }
 
   render() {
-    const { ranges, format, linkedCalendars, style, calendars, firstDayOfWeek, minDate, maxDate, classNames, onlyClasses, weekdaysFormat, monthsFormat } = this.props;
+    const { ranges, format, linkedCalendars, style, calendars, firstDayOfWeek, minDate, maxDate, classNames, onlyClasses, weekdaysFormat, monthsFormat, leftButton, rightButton } = this.props;
     const { range, link } = this.state;
     const { styles } = this;
 
@@ -150,13 +152,15 @@ class DateRange extends Component {
             classNames={ classes } />
         )}
 
-        {this.renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat)}
+        {this.renderCalendar(calendars, linkedCalendars, link, range, format, firstDayOfWeek, styles, minDate, maxDate, onlyClasses, classes, weekdaysFormat, monthsFormat, leftButton, rightButton)}
       </div>
     );
   }
 }
 
 DateRange.defaultProps = {
+  leftButton: null,
+  rightButton: null,
   linkedCalendars : false,
   theme           : {},
   format          : 'DD/MM/YYYY',
@@ -166,6 +170,8 @@ DateRange.defaultProps = {
 }
 
 DateRange.propTypes = {
+  leftButton     : PropTypes.element,
+  rightButton    : PropTypes.element,
   monthsFormat : PropTypes.array,
   weekdaysFormat : PropTypes.array,
   format          : PropTypes.string,

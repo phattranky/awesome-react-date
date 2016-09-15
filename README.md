@@ -7,6 +7,12 @@ A React component for choosing dates and date ranges. Uses [Moment.js](http://mo
 
 Extend from https://github.com/Adphorus/react-date-range
 
+- Addtionals:
+* weekdaysFormat
+* monthsFormat
+* leftButton: customize left month button
+* rightButton: customize right month button
+
 **Live Demo :** [http://phattranky.github.io/awesome-react-date](http://phattranky.github.io/awesome-react-date)
 
 ![](https://cdn.pbrd.co/images/1fjQlZzy.png)
@@ -53,6 +59,9 @@ class MyComponent extends Component {
 * **theme:** *(Object)* see [Demo's source](https://github.com/Adphorus/react-date-range/blob/master/demo/src/components/Main.js#L130)
 * **onInit:** *(Function)* default: none
 * **onChange:** *(Function)* default: none
+* **onlyClasses:** *(bool)* default: none
+* **leftButton:** *(element)* default: none
+* **rightButton:** *(element)* default: none
 
 ### Range Picker
 ```javascript
@@ -93,3 +102,7 @@ class MyComponent extends Component {
 * **linkedCalendars:** *(Boolean)* default: false
 * **calendars:** *(Number)* default: 2
 * **ranges:** *(Object)* default: none
+* **onlyClasses:** *(bool)* default: none
+* **leftButton:** *(element)* default: none
+* **rightButton:** *(element)* default: none
+
