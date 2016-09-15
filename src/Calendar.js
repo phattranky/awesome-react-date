@@ -92,7 +92,7 @@ class Calendar extends Component {
     const shownDate       = this.getShownDate();
     const year            = shownDate.year();
     const { styles }      = this;
-    const { onlyClasses, monthsFormat } = this.props;
+    const { onlyClasses, monthsFormat, leftButton, rightButton } = this.props;
     const month           = monthsFormat.length === 0 ? moment.months(shownDate.month()) : monthsFormat[shownDate.month()];
 
     return (
@@ -101,7 +101,7 @@ class Calendar extends Component {
           style={onlyClasses ? undefined : { ...styles['MonthButton'], float : 'left' }}
           className={classes.prevButton}
           onClick={this.changeMonth.bind(this, -1)}>
-          <i style={onlyClasses ? undefined : { ...styles['MonthArrow'], ...styles['MonthArrowPrev'] }}></i>
+          { leftButton ? leftButton : <i style={onlyClasses ? undefined : { ...styles['MonthArrow'], ...styles['MonthArrowPrev'] }}></i> }
         </button>
         <span>
           <span className={classes.month}>{month}</span>
@@ -112,7 +112,7 @@ class Calendar extends Component {
           style={onlyClasses ? undefined : { ...styles['MonthButton'], float : 'right' }}
           className={classes.nextButton}
           onClick={this.changeMonth.bind(this, +1)}>
-          <i style={onlyClasses ? undefined : { ...styles['MonthArrow'], ...styles['MonthArrowNext'] }}></i>
+          { rightButton ? rightButton : <i style={onlyClasses ? undefined : { ...styles['MonthArrow'], ...styles['MonthArrowNext'] }}></i> }
         </button>
       </div>
     )
@@ -225,6 +225,8 @@ class Calendar extends Component {
 }
 
 Calendar.defaultProps = {
+  leftButton: null,
+  rightButton: null,
   monthsFormat: [],
   weekdaysFormat: [],
   format      : 'DD/MM/YYYY',
@@ -234,6 +236,8 @@ Calendar.defaultProps = {
 }
 
 Calendar.propTypes = {
+  leftButton     : PropTypes.element,
+  rightButton    : PropTypes.element,
   monthsFormat   : PropTypes.array,
   weekdaysFormat : PropTypes.array,
   sets           : PropTypes.string,

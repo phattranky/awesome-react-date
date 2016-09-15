@@ -109,6 +109,8 @@ export default class Main extends Component {
             endDate={ now => {
               return '11/12/2015';
             }}
+            leftButton = { (<span>Left</span>) }
+            rightButton = { (<span>Right</span>) }
             onInit={ this.handleChange.bind(this, 'rangePicker') }
             onChange={ this.handleChange.bind(this, 'rangePicker') }
           />
@@ -129,7 +131,7 @@ export default class Main extends Component {
           />
         </Section>
 
-        <Section title='Date Picker (Monday First)'>
+        <Section title='Date Picker (Monday First - Custom Nav button)'>
           <div>
             <input
               type='text'
@@ -139,6 +141,8 @@ export default class Main extends Component {
           </div>
           <Calendar
             firstDayOfWeek={ 1 }
+            leftButton = { (<span>Left</span>) }
+            rightButton = { (<span>Right</span>) }
             date={ now => { return now.add(-4, 'days') } }
             onInit={ this.handleChange.bind(this, 'firstDayOfWeek') }
             onChange={ this.handleChange.bind(this, 'firstDayOfWeek') }
