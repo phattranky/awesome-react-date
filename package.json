@@ -1,6 +1,6 @@
 {
   "name": "awesome-react-date",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A React component for choosing dates and date ranges.",
   "main": "lib/index.js",
   "scripts": {
