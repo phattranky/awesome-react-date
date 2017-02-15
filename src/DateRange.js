@@ -20,7 +20,7 @@ class DateRange extends Component {
       link      : linkedCalendars && endDate,
     }
 
-    this.step = 0;
+    this.step = props.step;
     this.styles = getTheme(theme);
   }
 
@@ -51,6 +51,9 @@ class DateRange extends Component {
   }
 
   handleSelect(date, source) {
+    if (this.props.onSelect) {
+      this.props.onSelect(date);
+    }
     if (date.startDate && date.endDate) {
       this.step = 0;
       return this.setRange(date, source);
@@ -102,6 +105,9 @@ class DateRange extends Component {
           endDate: endDate || oldEndDate
         });
       }
+    }
+    if (newProps.step) {
+      this.step = newProps.step;
     }
   }
 
@@ -166,7 +172,8 @@ DateRange.defaultProps = {
   format          : 'DD/MM/YYYY',
   calendars       : 2,
   onlyClasses     : false,
-  classNames      : {}
+  classNames      : {},
+  step: 0
 }
 
 DateRange.propTypes = {
@@ -187,8 +194,10 @@ DateRange.propTypes = {
   theme           : PropTypes.object,
   onInit          : PropTypes.func,
   onChange        : PropTypes.func,
+  onSelect        : PropTypes.func,
   onlyClasses     : PropTypes.bool,
-  classNames      : PropTypes.object
+  classNames      : PropTypes.object,
+  step: PropTypes.number
 }
 
 export default DateRange;
