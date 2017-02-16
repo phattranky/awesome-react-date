@@ -106,7 +106,7 @@ class DateRange extends Component {
         });
       }
     }
-    if (newProps.step) {
+    if (newProps.step !== null) {
       this.step = newProps.step;
     }
   }
